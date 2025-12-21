@@ -1,13 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10Acious</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10Acious | Uncompromising Security</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+      <a href="index.html" class="logo">
+        <i data-lucide="shield" style="width: 32px; height: 32px;"></i>
+        <span>10Acious</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get Protected</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section
+      style="background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); color: white; padding: 5rem 0; position: relative; overflow: hidden;">
+      <div
+        style="position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(230,0,0,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 1;">
+      </div>
+      <div class="container" style="position: relative; z-index: 2; textAlign: center;">
+        <div class="animate-fade-in">
+          <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1;">
+            Uncompromising <span style="color: var(--color-primary);">Security</span><br>
+            For The Modern Enterprise
+          </h1>
+          <p style="font-size: 1.25rem; color: #ccc; max-width: 700px; margin: 0 auto 2.5rem;">
+            10Acious delivers next-generation SOC and Managed Services. We turn vulnerability into strength with 24/7
+            monitoring and rapid threat neutralization.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.125rem;">Start
+              Protection</a>
+            <a href="about.html" class="btn btn-outline" style="border-color: #fff; color: #fff;">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section style="padding: 5rem 0; background: #f8f9fa;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div class="feature-card">
+            <div class="feature-icon"><i data-lucide="eye"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">24/7 Monitoring</h3>
+            <p style="color: #666;">Round-the-clock vigilance. We see threats before they impact your business
+              operations.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Managed SOC</h3>
+            <p style="color: #666;">A dedicated security operations center acting as an extension of your IT team.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i data-lucide="zap"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Rapid Response</h3>
+            <p style="color: #666;">Automated containment and expert remediation to minimize downtime and damage.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i data-lucide="lock"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Compliance Ready</h3>
+            <p style="color: #666;">Helping you meet regulatory standards (GDPR, HIPAA, SOC2) with comprehensive
+              reporting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Threat Monitoring Section -->
+    <section style="padding: 4rem 0; background-color: #fff;">
+      <div class="container">
+        <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; text-align: center;">
+          Real-time <span style="color: var(--color-primary);">Threat Monitoring</span>
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div
+            style="padding: 2rem; border-radius: 1rem; background: #fff; border: 1px solid #eee; box-shadow: var(--shadow-md);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 600;">Network Traffic Analysis</h3>
+            <canvas id="trafficChart"></canvas>
+          </div>
+          <div
+            style="padding: 2rem; border-radius: 1rem; background: #fff; border: 1px solid #eee; box-shadow: var(--shadow-md);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 600;">Incident Response Breakdown</h3>
+            <canvas id="incidentChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 5rem 0; background: var(--color-primary); color: white; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1.5rem;">Ready to secure your infrastructure?
+        </h2>
+        <p style="font-size: 1.25rem; opacity: 0.9; margin-bottom: 2.5rem; max-width: 600px; margin: 0 auto 2.5rem;">
+          Join the leading organizations that trust 10Acious with their most critical assets.
+        </p>
+        <a href="contact.html" class="btn"
+          style="background: white; color: var(--color-primary); font-weight: bold; padding: 1rem 3rem;">Contact Us
+          Today</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background-color: #111; color: white; padding: 4rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: bold; color: var(--color-white); margin-bottom: 1rem;">
+            <i data-lucide="shield" style="color: var(--color-primary); width: 32px; height: 32px;"></i>
+            <span>10Acious</span>
+          </div>
+          <p style="color: #999; margin-bottom: 1rem;">
+            Premier SOC & Managed Services Provider. Securing your infrastructure with tenacity and precision.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Quick Links</h3>
+          <ul style="display: flex; flex-direction: column; gap: 0.5rem; color: #ccc;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Contact Us</h3>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: #ccc;">
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="mail"></i> info@10Acious.com
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="phone"></i> +1 (555) 123-4567
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="map-pin"></i> 123 Cyber Way,
+              Tech City</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #333; margin-top: 3rem; padding-top: 1.5rem; text-align: center; color: #666;">
+        &copy; 2024 10Acious. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
 </html>
